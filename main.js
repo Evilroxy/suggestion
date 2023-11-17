@@ -1,4 +1,5 @@
 const mots = [
+  "Thaïs",
   "avocat",
   "boulanger",
   "cafetière",
@@ -172,34 +173,35 @@ const mots = [
   "xylophone",
   "yeux",
   "zéro",
-  
 ];
-const div = document.querySelector('#sugg');
-const input = document.querySelector('input');
-input.addEventListener('input', (e)=> {
+const div = document.querySelector("#sugg");
+const input = document.querySelector("input");
+input.addEventListener("input", (e) => {
   //console.log(e.target.value);
   //console.log(input.value);
   const results = search(e.target.value, mots);
   console.log(results);
   let liste = "";
-   for(let i = 0; i < results.length; i++){
-    liste += "<li>" + results[i] + "</li>"
-   
+  for (let i = 0; i < results.length; i++) {
+    liste += "<li>" + results[i] + "</li>";
   }
-   div.innerHTML = liste
-})
+  div.innerHTML = liste;
+});
 
-const search = (str, wordList)=>{
+const search = (str, wordList) => {
   const results = [];
-  if(str.length === 0){
+
+  if (str.length === 0) {
     return results;
   }
-  for(let i = 0; i < wordList.length ; i++){
+  for (let i = 0; i < wordList.length; i++) {
     const item = wordList[i];
-    if(item.startsWith(str)) {
-      results.push(item)
+    if (item.toLowerCase().startsWith(str.toLowerCase())) {
+      results.push(item);
+    } else
+    if (item.toUpperCase().startsWith(str.toUpperCase())) {
+      results.push(item);
     }
   }
-  return results
-}
-
+  return results;
+};
