@@ -4,11 +4,26 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: lightcyan;
+  --bcgColor:rgb(231, 207, 207);
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  background-color: var(--bcgColor);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
+
+}
+ul {
+  width: 400px;
+  background-color: rgb(187, 151, 187);
 }
 
